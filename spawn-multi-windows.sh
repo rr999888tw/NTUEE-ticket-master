@@ -13,7 +13,7 @@ PYTHON_SCRIPT_PATH="eric_wu/recreation_checker.py"
 
 # The number of Python processes to spawn.
 # Change this value to control the level of multitasking.
-NUM_PROCESSES=3
+NUM_PROCESSES=10
 
 # The directory to store the log files.
 LOG_DIR="logs"
