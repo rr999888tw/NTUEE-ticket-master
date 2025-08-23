@@ -53,7 +53,6 @@ try:
     driver.get(TICKET_PAGE_URL)
     print("Page loaded. Title:", driver.title)
     print("Current URL:", driver.current_url)
-    driver.save_screenshot("ticket_page.png")
 
     # Step 2: Click Sign In button
     print("Looking for Sign Up / Log In button...")
@@ -62,7 +61,6 @@ try:
     )
     sign_in_button.click()
     print("Clicked Sign Up / Log In button. Current URL:", driver.current_url)
-    driver.save_screenshot("post_sign_in_click.png")
 
     # Step 3: Enter credentials on login page with robust error handling
     print("Waiting for login form...")
@@ -74,7 +72,7 @@ try:
         email_field.send_keys(USERNAME)
     except Exception as e:
         print(f"Error finding email field: {e}")
-        driver.save_screenshot("error_email_field.png")
+
         raise
 
     try:
@@ -85,7 +83,7 @@ try:
         password_field.send_keys(PASSWORD)
     except Exception as e:
         print(f"Error finding password field: {e}")
-        driver.save_screenshot("error_password_field.png")
+
         raise
 
     try:
@@ -97,7 +95,7 @@ try:
             login_button.click()
         except Exception as e:
             print(f"Error finding/clicking login button by XPath: {e}")
-            driver.save_screenshot("error_login_button.png")
+    
             # Try fallback by CSS selector if available
             try:
                 login_button_alt = driver.find_element(By.CSS_SELECTOR, "button.rec-acct-sign-in-btn, button[type='submit']")
@@ -105,17 +103,16 @@ try:
                 login_button_alt.click()
             except Exception as e2:
                 print(f"Fallback login button also failed: {e2}")
-                driver.save_screenshot("error_login_button_alt.png")
+        
                 raise
     except Exception as e:
         print(f"Error during login button process: {e}")
-        driver.save_screenshot("error_login_button_process.png")
+
         raise
 
     time.sleep(0.5) # wait for login to complete
 
     print("Login attempted. Current URL:", driver.current_url)
-    driver.save_screenshot("post_login_attempt.png")
 
     # Step 5: Wait until release time
     print("Waiting for release time...")
@@ -239,13 +236,11 @@ try:
     )
     request_tickets_button.click()
     print("Request Tickets clicked.")
-    driver.save_screenshot("request_tickets_confirmation.png")
     # Switch to interactive mode
     input("Automation complete. You may now interact with the browser manually. Press Enter to exit and close the browser...")
 
 except Exception as e:
     print(f"Error during automation: {e}")
-    driver.save_screenshot("error_screenshot.png")
     print("Screenshot saved as error_screenshot.png")
 
 finally:
