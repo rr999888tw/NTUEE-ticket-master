@@ -175,7 +175,7 @@ try:
             # Close dropdown with ESC
             from selenium.webdriver.common.keys import Keys
             driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
-            time.sleep(1)
+            time.sleep(0.1)
             print("Sent ESC key to close dropdown.")
     except Exception as e:
         print(f"Quantity selection failed: {e}")
