@@ -10,16 +10,27 @@ import time
 from datetime import datetime
 import pytz
 
-# Customizable variables
-USERNAME = # input("Enter your Recreation.gov email/username: ")
-PASSWORD = # input("Enter your Recreation.gov password: ")
-TICKET_PAGE_URL = "https://www.recreation.gov/ticket/249985/ticket/10253611"
-TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
-TIME_BLOCK = "8:00 a.m. to 8:59 a.m."  # Desired time block
-NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
-RELEASE_TIME = datetime(2025, 8, 22, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
 
-# Set up timezone for Mountain Daylight Time (MDT)
+# # Production
+# USERNAME = ""
+# PASSWORD = ""
+# TICKET_PAGE_URL = "https://www.recreation.gov/ticket/249985/ticket/10253611"
+# TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
+# TIME_BLOCK = "8:00 a.m. to 8:59 a.m."  # Desired time block
+# NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
+# RELEASE_TIME = datetime(2025, 8, 22, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+
+
+## Test
+USERNAME = ""
+PASSWORD = ""
+TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
+TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
+TIME_BLOCK = "9:00 a.m. to 10:00 a.m."  # Desired time block
+NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
+RELEASE_TIME = datetime(2025, 8, 30, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+
+# t up timezone for Mountain Daylight Time (MDT)
 tz = pytz.timezone('US/Mountain')
 RELEASE_TIME = tz.localize(RELEASE_TIME)
 
@@ -130,22 +141,34 @@ try:
     print("Date entered.")
     time.sleep(0.5)
 
-    # Step 7: Set quantity to 1 using dropdown
-    print("Selecting quantity...")
+    # Step 7: Set quantity by clicking + button multiple times
+    print(f"Setting quantity to {NUM_PEOPLE} tickets...")
+    
+    # Find the quantity selector area
     quantity_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "10253611"))
     )
     quantity_button.click()
     time.sleep(0.5)
-    # Select '4 Ticket' from dropdown
+    
+    # Click the + button multiple times to reach desired quantity
     try:
-        four_ticket_option = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), '4 Ticket')]"))
+        # Look for the + button with aria-label "Add Adults"
+        plus_button = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "button[aria-label='Add Adults']"))
         )
-        four_ticket_option.click()
-        print("Selected 4 Ticket.")
+        
+        # Start from 1 and click + button (NUM_PEOPLE - 1) times to reach desired quantity
+        current_quantity = 1
+        while current_quantity < int(NUM_PEOPLE):
+            plus_button.click()
+            current_quantity += 1
+            time.sleep(0.2)  # Small delay between clicks
+            print(f"Clicked + button. Current quantity: {current_quantity}")
+        
+        print(f"Successfully set quantity to {NUM_PEOPLE} tickets")
     except Exception as e:
-        print(f"Could not select 4 Ticket: {e}")
+        print(f"Could not set quantity using + button: {e}, proceeding with default")
 
     # Step 8: Click Request Tickets
     print("Clicking Request Tickets...")
