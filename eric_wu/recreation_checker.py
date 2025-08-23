@@ -27,10 +27,10 @@ PASSWORD = ""
 # TICKET_PAGE_URL  = "https://www.recreation.gov/timed-entry/10088426/ticket/10088427"
 # TICKET_PAGE_URL = "https://www.recreation.gov/ticket/10088514/ticket/10088517"
 TICKET_PAGE_URL = "https://www.recreation.gov/ticket/10101955/ticket/10101956"
-TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
-TIME_BLOCK = "6:00"  # Desired time block
-NUM_PEOPLE = "1"  # Number of people (up to 4 per ticket)
-RELEASE_TIME = datetime(2025, 8, 23, 1, 37, 0)  # 8:00 AM MDT on Aug 23, 2025
+TARGET_DATE = "09/13/2025"  # Format: MM/DD/YYYY
+TIME_BLOCK = "4:30"  # Desired time block
+NUM_PEOPLE = "3"  # Number of people (up to 4 per ticket)
+RELEASE_TIME = datetime(2025, 8, 23, 1, 51, 0)  # 8:00 AM MDT on Aug 23, 2025
 
 # t up timezone for Mountain Daylight Time (MDT)
 tz = pytz.timezone('US/Mountain')
@@ -249,7 +249,4 @@ except Exception as e:
     print("Screenshot saved as error_screenshot.png")
 
 finally:
-    while True:
-        time.sleep(60)
-
-    # driver.quit()
+    driver.quit()
