@@ -25,11 +25,12 @@ PASSWORD = ""
 # TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112471/ticket/10112472"
 # TICKET_PAGE_URL = "https://www.recreation.gov/ticket/251610/ticket/182"
 # TICKET_PAGE_URL  = "https://www.recreation.gov/timed-entry/10088426/ticket/10088427"
-TICKET_PAGE_URL = "https://www.recreation.gov/ticket/10088514/ticket/10088517"
+# TICKET_PAGE_URL = "https://www.recreation.gov/ticket/10088514/ticket/10088517"
+TICKET_PAGE_URL = "https://www.recreation.gov/ticket/10101955/ticket/10101956"
 TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
-TIME_BLOCK = "1:00"  # Desired time block
-NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
-RELEASE_TIME = datetime(2025, 8, 23, 00, 34, 0)  # 8:00 AM MDT on Aug 23, 2025
+TIME_BLOCK = "6:00"  # Desired time block
+NUM_PEOPLE = "1"  # Number of people (up to 4 per ticket)
+RELEASE_TIME = datetime(2025, 8, 23, 1, 37, 0)  # 8:00 AM MDT on Aug 23, 2025
 
 # t up timezone for Mountain Daylight Time (MDT)
 tz = pytz.timezone('US/Mountain')
@@ -167,7 +168,7 @@ try:
                             print(f"Add button for {ticket_type} is disabled. Maximum quantity reached or cannot increment further.")
                             break
                         add_btn.click()
-                        time.sleep(0.2)
+                        time.sleep(0.1)
                         current_quantity = int(input_field.get_attribute("value"))
                         print(f"Clicked Add {ticket_type}. Current quantity: {current_quantity}")
                     print(f"Successfully set quantity to {NUM_PEOPLE} for {ticket_type}.")
@@ -241,8 +242,6 @@ try:
     driver.save_screenshot("request_tickets_confirmation.png")
     # Switch to interactive mode
     input("Automation complete. You may now interact with the browser manually. Press Enter to exit and close the browser...")
-    # Switch to interactive mode
-    input("Automation complete. You may now interact with the browser manually. Press Enter to exit and close the browser...")
 
 except Exception as e:
     print(f"Error during automation: {e}")
@@ -250,4 +249,7 @@ except Exception as e:
     print("Screenshot saved as error_screenshot.png")
 
 finally:
-    driver.quit()
+    while True:
+        time.sleep(60)
+
+    # driver.quit()
