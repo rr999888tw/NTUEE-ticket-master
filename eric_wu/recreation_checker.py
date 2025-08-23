@@ -11,24 +11,24 @@ from datetime import datetime
 import pytz
 
 
-# # Production
-# USERNAME = ""
-# PASSWORD = ""
-# TICKET_PAGE_URL = "https://www.recreation.gov/ticket/249985/ticket/10253611"
-# TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
-# TIME_BLOCK = "8:00 a.m. to 8:59 a.m."  # Desired time block
-# NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
-# RELEASE_TIME = datetime(2025, 8, 22, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
-
-
-## Test
+# Customizable variables
 USERNAME = ""
 PASSWORD = ""
-TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
-TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
-TIME_BLOCK = "9:00 a.m. to 10:00 a.m."  # Desired time block
+TICKET_PAGE_URL = "https://www.recreation.gov/ticket/249985/ticket/10253611"
+TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
+TIME_BLOCK = "8:00 a.m. to 8:59 a.m."  # Desired time block
 NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
-RELEASE_TIME = datetime(2025, 8, 30, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+RELEASE_TIME = datetime(2025, 8, 22, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+
+
+
+# USERNAME = ""
+# PASSWORD = ""
+# TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
+# TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
+# TIME_BLOCK = "9:00 a.m. to 10:00 a.m."  # Desired time block
+# NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
+# RELEASE_TIME = datetime(2025, 8, 23, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
 
 # t up timezone for Mountain Daylight Time (MDT)
 tz = pytz.timezone('US/Mountain')
