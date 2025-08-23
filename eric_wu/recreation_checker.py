@@ -9,12 +9,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 from datetime import datetime
 import pytz
-
-
-# Customizable variables
-USERNAME = ""
-PASSWORD = ""
-
+from credentials import USERNAME, PASSWORD
 
 # TARGET URL
 TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
