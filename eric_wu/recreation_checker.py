@@ -12,14 +12,20 @@ import pytz
 from credentials import USERNAME, PASSWORD
 
 # TARGET URL
-TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
+TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10087086/ticket/10087087"
 TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
-NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
-TIME_BLOCK = "7:00 AM - 8:00 AM"
+NUM_PEOPLE = "1"  # Number of people (up to 4 per ticket)
+TIME_BLOCK = "7:00 AM - 9:00 AM"
+RELEASE_TIME = datetime(2025, 8, 29, 19, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+
+# TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
+# TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
+# NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
+# TIME_BLOCK = "7:00 AM - 8:00 AM"
 # TIME_BLOCK = "8:00 AM - 9:00 AM"
 # TIME_BLOCK = "9:00 AM - 10:00 AM"
 # TIME_BLOCK = "10:00 AM - 11:00 AM"
-RELEASE_TIME = datetime(2025, 8, 23, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+# RELEASE_TIME = datetime(2025, 8, 23, 8, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
 
 # TEST CASE
 # TICKET_PAGE_URL = "https://www.recreation.gov/ticket/249985/ticket/10253611"
