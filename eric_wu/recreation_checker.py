@@ -18,6 +18,14 @@ NUM_PEOPLE = "1"  # Number of people (up to 4 per ticket)
 TIME_BLOCK = "7:00 AM - 9:00 AM"
 RELEASE_TIME = datetime(2025, 8, 29, 19, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
 
+# TEST URL
+# TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10087086/ticket/10087087"
+# TARGET_DATE = "08/29/2025"  # Format: MM/DD/YYYY
+# NUM_PEOPLE = "1"  # Number of people (up to 4 per ticket)
+# TIME_BLOCK = "7:00 AM - 9:00 AM"
+# RELEASE_TIME = datetime(2025, 8, 28, 19, 0, 0)  # 8:00 AM MDT on Aug 23, 2025
+
+
 # TICKET_PAGE_URL = "https://www.recreation.gov/timed-entry/10112683/ticket/10112684"
 # TARGET_DATE = "08/30/2025"  # Format: MM/DD/YYYY
 # NUM_PEOPLE = "4"  # Number of people (up to 4 per ticket)
