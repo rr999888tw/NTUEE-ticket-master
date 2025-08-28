@@ -40,7 +40,7 @@ for i in $(seq 1 $NUM_PROCESSES); do
     # '>' redirects standard output (stdout) to the output log file,
     # '2>' redirects standard error (stderr) to the error log file,
     # '&' sends the process to the background, allowing the loop to continue.
-    nohup python3 "$PYTHON_SCRIPT_PATH" > "$OUTPUT_LOG" 2> "$ERROR_LOG" &
+    nohup python3 -u "$PYTHON_SCRIPT_PATH" > "$OUTPUT_LOG" 2> "$ERROR_LOG" &
     
     # Add the process ID (PID) of the last background command to the PIDS array.
     PIDS+=( $! )
